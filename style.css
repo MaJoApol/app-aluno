@@ -265,3 +265,62 @@ body{
 .card__group .card__description{
     font-size: 12px;
 }
+
+.profile__avatar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    margin-right: 24px;
+    border-radius: 50%;
+    background-color: #0F5830;
+    color: #FFFFFF;
+    font-size: 32px;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.profile__meta{
+    margin: 8px 0 0;
+    color: #999999;
+    font-size: 14px;
+}
+
+.profile__meta span{
+    display: block;
+    margin-top: 4px;
+}
+
+.profile__form label{
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 8px;
+    color: #0F5830;
+    font-weight: bold;
+}
+
+.profile__form input{
+    display: block;
+    width: 75%;
+    padding: 8px 12px;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+}
+
+.profile__save{
+    display: block;
+    margin-top: 24px;
+    padding: 16px 32px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 4px;
+    background-color: #0F5830;
+    cursor: pointer;
+}
+
+.profile__card .card__button{
+    align-self: center;
+    margin: 0 0 0 30px;
+}

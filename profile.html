@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+
+    <link href="style.css" rel="stylesheet">
+    <link href="mobile.css" rel="stylesheet">
+</head>
+<body class="dashboard">
+
+    <header class="menu">
+        <div class="menu__body">
+            <h1 class="menu__title">Academia <span>Portal do aluno</span></h1>
+            <nav class="menu__links">
+                <a class="menu__item" href="dashboard.html">Painel</a>
+                <a class="menu__item" href="">Disciplinas</a>
+                <a class="menu__item" href="">Tutor IA</a>
+                <a class="menu__item menu__item--active" href="profile.html">Perfil</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="dashboard__container">
+
+        <div class="welcome">
+            <h2>Meu perfil</h2>
+            <p>Gerencie suas informações pessoais e preferências da conta.</p>
+        </div>
+
+        <div class="card profile__card">
+            <div class="profile__avatar" id="avatar">P</div>
+            <div class="card__body">
+                <span class="card__badge">Aluno</span>
+                <h3 class="card__title" id="nome">Paulo</h3>
+                <p class="card__description" id="cidade">Criciúma</p>
+                <p class="profile__meta">
+                    <span id="idade">33 anos</span>
+                    <span id="email">paulo@email.com</span>
+                </p>
+            </div>
+            <a href="index.html">
+                <button class="card__button">Sair</button>
+            </a>
+        </div>
+
+        <div class="card profile__form">
+            <div class="card__body">
+                <span class="card__badge">Dados pessoais</span>
+                <h3 class="card__title">Editar informações</h3>
+                <p class="card__description">Atualize seus dados de contato e acesso.</p>
+
+                <label for="nome-input">Nome completo</label>
+                <input name="nome" id="nome-input" type="text" placeholder="Nome completo" value="Paulo" />
+
+                <label for="email-input">E-mail</label>
+                <input name="email" id="email-input" type="email" placeholder="seu@email.com" value="paulo@email.com" />
+
+                <label for="telefone">Telefone</label>
+                <input name="telefone" id="telefone" type="tel" placeholder="(99) 99999-9999" value="(48) 99999-9999" />
+
+                <label for="cidade-input">Cidade</label>
+                <input name="cidade" id="cidade-input" type="text" placeholder="Sua cidade" value="Criciúma" />
+
+                <button class="profile__save" type="button" id="salvar">Salvar alterações</button>
+            </div>
+        </div>
+
+        <div class="card__group" style="margin-bottom: 20px;">
+
+            <div class="card">
+                <div class="card__body">
+                    <span class="card__badge">Disciplinas</span>
+                    <h3 class="card__title">2</h3>
+                    <p class="card__description">Em andamento</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card__body">
+                    <span class="card__badge">Tempo de estudo</span>
+                    <h3 class="card__title">18h 45m</h3>
+                    <p class="card__description">Total acumulado</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card__body">
+                    <span class="card__badge">Membro desde</span>
+                    <h3 class="card__title">Jan/2025</h3>
+                    <p class="card__description">Data de cadastro</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        const pessoa = {
+            nome: 'Paulo',
+            idade: 33,
+            cidade: 'Criciúma',
+            email: 'paulo@email.com'
+        };
+
+        const avatar = document.getElementById('avatar');
+        avatar.textContent = pessoa.nome.charAt(0);
+
+        document.getElementById('salvar').addEventListener('click', () => {
+            const nome = document.getElementById('nome-input').value;
+            const email = document.getElementById('email-input').value;
+            const cidade = document.getElementById('cidade-input').value;
+
+            document.getElementById('nome').textContent = nome;
+            document.getElementById('email').textContent = email;
+            document.getElementById('cidade').textContent = cidade;
+            avatar.textContent = nome.charAt(0);
+
+            alert('Perfil atualizado com sucesso!');
+        });
+    </script>
+
+</body>
+</html>
