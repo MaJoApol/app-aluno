@@ -17,7 +17,7 @@ export const CourseCard = ({
   progress,
   onResume,
 }: CourseCardProps) => (
-  <div className="bg-white rounded-lg p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-6 shadow-sm">
+  <div className="bg-white rounded-lg p-6 flex flex-col sm:flex-row sm:items-end justify-between gap-6 shadow-sm hover:scale-102 transition-all">
     <div className="flex flex-col gap-3 flex-1">
       <StatusBadge label={status} />
       <div className="flex flex-col gap-0.5">

@@ -10,6 +10,9 @@ function App() {
       {/* <Route path="/" element={<InputField />} /> */}
       <Route path="/" element={<Login />} />
       <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/dashboard/disciplinas" element={<Dashboard />} />
+      <Route path="/dashboard/tutor-ia" element={<Dashboard />} />
+      <Route path="/dashboard/perfil" element={<Dashboard />} />
     </Routes>
   );
 }
