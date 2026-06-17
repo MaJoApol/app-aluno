@@ -1,0 +1,78 @@
+import { useNavigate } from "react-router";
+import { Button } from "../components/Button";
+import { Input } from "../components/Input";
+
+const InputField = ({
+  text,
+  placeholder,
+  linkText,
+}: {
+  text: string;
+  linkText?: string;
+  placeholder?: string;
+}) => {
+  return (
+    <div className="flex flex-col text-left gap-2 w-full">
+      <Input.Label linkText={linkText}>{text}</Input.Label>
+      <Input.Field placeholder={placeholder} />
+    </div>
+  );
+};
+
+export default function Login() {
+  const navigator = useNavigate();
+  return (
+    <main className="flex w-full min-h-screen flex-col md:flex-row">
+      <section
+        className="
+        hidden md:flex
+        md:flex-1 md:max-w-[50%]
+        bg-emerald-900
+        flex-col items-start justify-center
+        text-left p-20 gap-8
+      "
+      >
+        <p className="text-5xl font-bold text-white">
+          "Educação não é o aprendizado de fatos, mas treinamento da mente para
+          pensar."
+        </p>
+        <p className="text-md font-bold text-white">Albert Einstein</p>
+      </section>
+
+      <section
+        className="
+        flex flex-1
+        md:max-w-[50%]
+        flex-col items-center justify-center
+        bg-white
+        px-6 md:px-20
+        py-12 md:py-0
+        gap-10
+      "
+      >
+        <div className="flex flex-col gap-2 text-left w-full">
+          <p className="text-3xl md:text-4xl font-bold">Bem-vindo de volta</p>
+          <p className="text-base md:text-lg text-slate-600">
+            Por favor, insira suas credenciais para acessar seu painel acadêmico
+          </p>
+        </div>
+
+        <form className="flex flex-col gap-5 w-full">
+          <InputField placeholder="user@email.com" text="E-mail" />
+          <InputField
+            linkText="Esqueceu sua senha?"
+            placeholder="••••••••"
+            text="Senha"
+          />
+          <Button
+            onClick={() => navigator("/dashboard")}
+            variant="primary"
+            fullWidth
+          >
+            Entrar
+          </Button>
+        </form>
+      </section>
+    </main>
+  );
+}
