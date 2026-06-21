@@ -20,7 +20,7 @@ const InputField = ({
   );
 };
 
-export default function Register() {
+export default function CompleteRegister() {
   const navigator = useNavigate();
   return (
     <main className="flex w-full min-h-screen flex-col md:flex-row">
@@ -39,18 +39,24 @@ export default function Register() {
         <div className="flex flex-col gap-2 text-left w-full">
           <p className="text-3xl md:text-4xl font-bold">Cadastre-se</p>
           <p className="text-base md:text-lg text-slate-600">
-            Passo 1 de 2. Por favor, insira seu CPF para prosseguir
+            Passo 2 de 2. Por favor insira seus dados para finalizar e prosseguir.
           </p>
         </div>
 
         <form className="flex flex-col gap-5 w-full">
-          <InputField placeholder="000.000.000-00" text="CPF" />
+          <InputField placeholder="Insira aqui seu nome completo...." text="Nome Completo" />
+          <InputField placeholder="(48) 00000-0000" text="Telefone" />
+          <InputField placeholder="user@email.com" text="E-mail" />
+          <InputField
+            placeholder="••••••••"
+            text="Senha"
+          />
           <Button
-            onClick={() => navigator("/concluir-registro")}
+            onClick={() => navigator("/dashboard")}
             variant="primary"
             fullWidth
           >
-            Prosseguir
+            Concluir Cadastro
           </Button>
         </form>
       </section>

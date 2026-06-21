@@ -8,6 +8,7 @@ import TutorIA from "./pages/tutorIA";
 import Profile from "./pages/perfil";
 
 import Register from "./pages/register";
+import CompleteRegister from "./pages/completeRegister";
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
       {/* <Route path="/" element={<InputField />} /> */}
       <Route path="/" element={<Login />} />
       <Route path="/registro" element={<Register />} />
-      
+      <Route path="/concluir-registro" element={<CompleteRegister />} />
+
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/dashboard/disciplinas" element={<Disciplinas />} />
       <Route path="/dashboard/tutor-ia" element={<TutorIA />} />
