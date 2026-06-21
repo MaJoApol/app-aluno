@@ -9,6 +9,7 @@ import Profile from "./pages/perfil";
 
 import Register from "./pages/register";
 import CompleteRegister from "./pages/completeRegister";
+import ForgotPassword from "./pages/forgotPassword";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path="/" element={<Login />} />
       <Route path="/registro" element={<Register />} />
       <Route path="/concluir-registro" element={<CompleteRegister />} />
+      <Route path="/esqueceu-senha" element={<ForgotPassword />} />
 
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/dashboard/disciplinas" element={<Disciplinas />} />
