@@ -5,17 +5,20 @@ export const Input = {
     children,
     cn,
     linkText,
+    linkRedirect
   }: {
     cn?: string;
     placeholder?: string;
     children: React.ReactNode;
     linkText?: string;
+    linkRedirect?: string;
   }) => {
     return (
       <div className="flex items-center justify-between gap-2">
         <p className="text-slate-800">{children}</p>
         {linkText && (
           <a
+            href={linkRedirect}
             className={classNames(
               "text-sm",
               "text-emerald-600",

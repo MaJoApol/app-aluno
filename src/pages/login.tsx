@@ -31,6 +31,7 @@ export default function Login() {
           <InputField placeholder="user@email.com" text="E-mail" />
           <InputField
             linkText="Esqueceu sua senha?"
+            linkRedirect="/esqueceu-senha"
             placeholder="••••••••"
             text="Senha"
           />
