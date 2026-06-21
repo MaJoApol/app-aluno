@@ -20,7 +20,7 @@ const InputField = ({
   );
 };
 
-export default function ForgotPassword() {
+export default function NewPassword() {
   const navigator = useNavigate();
   return (
     <main className="flex w-full min-h-screen flex-col md:flex-row">
@@ -37,20 +37,27 @@ export default function ForgotPassword() {
       "
       >
         <div className="flex flex-col gap-2 text-left w-full">
-          <p className="text-3xl md:text-4xl font-bold">Esqueci Minha Senha</p>
+          <p className="text-3xl md:text-4xl font-bold">Nova Senha</p>
           <p className="text-base md:text-lg text-slate-600">
-            Informe seu e-mail para enviarmos o link para redefir sua senha.
+            Informe abaixo sua nova senha.
           </p>
         </div>
 
         <form className="flex flex-col gap-5 w-full">
-          <InputField placeholder="user@email.com" text="E-mail" />
+          <InputField
+            placeholder="••••••••"
+            text="Informe sua nova senha"
+          />
+          <InputField
+            placeholder="••••••••"
+            text="Repita sua nova senha"
+          />
           <Button
-            onClick={() => navigator("/nova-senha")}
+            onClick={() => navigator("/dashboard")}
             variant="primary"
             fullWidth
           >
-            Enviar
+            Confirmar
           </Button>
         </form>
       </section>
