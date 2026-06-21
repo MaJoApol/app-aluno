@@ -3,6 +3,8 @@ import { CourseCard, type CourseCardProps } from "../components/CourseCard";
 import { Header } from "../components/Header";
 import { StatCard, type StatCardProps } from "../components/StatCard";
 
+import { useUser } from '../contexts/UserContext';
+
 const courses: Omit<CourseCardProps, "onResume">[] = [
   {
     status: "Em progresso",
@@ -39,6 +41,7 @@ const stats: StatCardProps[] = [
 
 export default function Dashboard() {
   const navigate = useNavigate();
+  const { user } = useUser();
 
   return (
     <>
@@ -46,7 +49,7 @@ export default function Dashboard() {
       <main className="w-full min-h-screen bg-gray-200 px-[10vw] py-10 flex flex-col gap-8 text-left">
         <section className="flex flex-col gap-2">
           <h1 className="text-3xl font-bold text-emerald-700">
-            Boa aula, Paulo
+            Boa aula, { user.username }
           </h1>
           <p className="text-gray-500 max-w-2xl text-sm leading-relaxed">
             Bem-vindo de volta a sua sessão de estudos focado. Você tem 2
