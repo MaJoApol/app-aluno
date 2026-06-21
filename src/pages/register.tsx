@@ -20,12 +20,11 @@ const InputField = ({
   );
 };
 
-export default function Login() {
+export default function Register() {
   const navigator = useNavigate();
   return (
     <main className="flex w-full min-h-screen flex-col md:flex-row">
       <Hero/>
-
       <section
         className="
         flex flex-1
@@ -38,25 +37,20 @@ export default function Login() {
       "
       >
         <div className="flex flex-col gap-2 text-left w-full">
-          <p className="text-3xl md:text-4xl font-bold">Bem-vindo de volta</p>
+          <p className="text-3xl md:text-4xl font-bold">Cadastre-se</p>
           <p className="text-base md:text-lg text-slate-600">
-            Por favor, insira suas credenciais para acessar seu painel acadêmico
+            Passo 1 de 2. Por favor, insira seu CPF para prosseguir
           </p>
         </div>
 
         <form className="flex flex-col gap-5 w-full">
-          <InputField placeholder="user@email.com" text="E-mail" />
-          <InputField
-            linkText="Esqueceu sua senha?"
-            placeholder="••••••••"
-            text="Senha"
-          />
+          <InputField placeholder="Insira aqui seu CPF...." text="CPF" />
           <Button
             onClick={() => navigator("/dashboard")}
             variant="primary"
             fullWidth
           >
-            Entrar
+            Prosseguir
           </Button>
         </form>
       </section>

@@ -7,15 +7,20 @@ import Disciplinas from "./pages/disciplinas";
 import TutorIA from "./pages/tutorIA";
 import Profile from "./pages/perfil";
 
+import Register from "./pages/register";
+
 function App() {
   return (
     <Routes>
       {/* <Route path="/" element={<InputField />} /> */}
       <Route path="/" element={<Login />} />
+      <Route path="/registro" element={<Register />} />
+      
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/dashboard/disciplinas" element={<Disciplinas />} />
       <Route path="/dashboard/tutor-ia" element={<TutorIA />} />
       <Route path="/dashboard/perfil" element={<Profile />} />
+
     </Routes>
   );
 }
