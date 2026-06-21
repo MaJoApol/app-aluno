@@ -53,6 +53,10 @@ export default function Register() {
             Prosseguir
           </Button>
         </form>
+        <p>
+          Já possui conta?
+          <a href="/" className="text-emerald-600 hover:underline"> Entre agora!</a>
+        </p>
       </section>
     </main>
   );
