@@ -15,7 +15,7 @@ export function UserProvider({ children }) {
         name: 'PauloJunto TudoCesar',
         username: 'PauloCesar',
         email: 'paulojunto@email.com',
-        document: '120.120.120.-00',
+        document: '120.120.120-12',
         phoneNumber: '(48) 99898-9898'
     }); 
 
