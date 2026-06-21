@@ -47,6 +47,15 @@ export const Header = () => {
         >
           Perfil
         </a>
+        <a
+          className={classNames(
+            " hover:text-emerald-700",
+              null
+          )}
+          href="/"
+        >
+          Sair
+        </a>
       </nav>
     </header>
   );
