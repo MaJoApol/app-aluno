@@ -59,6 +59,10 @@ export default function Login() {
             Entrar
           </Button>
         </form>
+        <p>
+          Não possui conta?
+          <a href="/registro" className="text-emerald-600 hover:underline"> Registre-se agora!</a>
+        </p>
       </section>
     </main>
   );
