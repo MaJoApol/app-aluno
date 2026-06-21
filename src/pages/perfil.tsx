@@ -2,23 +2,13 @@ import { useState } from "react";
 import { Header } from "../components/Header";
 import { useUser } from "../contexts/UserContext";
 import ProfileRow from "../components/ProfileRow";
+import { getInitials } from "../utils";
 
 export default function Profile() {
   const { user } = useUser();
   const [activeTab, setActiveTab] = useState("Dados Pessoais");
 
   const tabs = ["Dados Pessoais", "Configurações", "Segurança"];
-
-  const getInitials = (name: string) => {
-    if (!name) return "";
-    const words = name.trim().split(" ").filter(Boolean);
-    
-    if (words.length >= 2) {
-      return (words[0][0] + words[1][0]).toUpperCase();
-    }
-    
-    return words[0]?.[0]?.toUpperCase() || "";
-  };
 
   const personalData = [
     { label: "Nome Completo", value: user?.name || "João Silva" },
