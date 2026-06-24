@@ -1,7 +1,8 @@
+import { Link, useLocation } from "react-router";
 import classNames from "classnames";
 
 export const Header = () => {
-  const pathname = window.location.pathname;
+  const { pathname } = useLocation();
 
   return (
     <header className="flex flex-row justify-between bg-white p-4 px-[10vw]">
@@ -11,51 +12,45 @@ export const Header = () => {
       </div>
 
       <nav className="flex flex-row items-center gap-12 text-gray-400/60 font-bold">
-        <a
+        <Link
           className={classNames(
-            " hover:text-emerald-700",
+            "hover:text-emerald-700",
             pathname === "/dashboard" ? "text-emerald-700" : null,
           )}
-          href="/dashboard"
+          to="/dashboard"
         >
           Painel
-        </a>
-        <a
+        </Link>
+        <Link
           className={classNames(
-            " hover:text-emerald-700",
-            pathname.includes("disciplinas") ? "text-emerald-700" : null,
+            "hover:text-emerald-700",
+            pathname.includes("projetos") ? "text-emerald-700" : null,
           )}
-          href="/dashboard/disciplinas"
+          to="/dashboard/projetos"
         >
-          Disciplinas
-        </a>
-        <a
+          Projetos
+        </Link>
+        <Link
           className={classNames(
-            " hover:text-emerald-700",
+            "hover:text-emerald-700",
             pathname.includes("tutor-ia") ? "text-emerald-700" : null,
           )}
-          href="/dashboard/tutor-ia"
+          to="/dashboard/tutor-ia"
         >
           Tutor IA
-        </a>
-        <a
+        </Link>
+        <Link
           className={classNames(
-            " hover:text-emerald-700",
+            "hover:text-emerald-700",
             pathname.includes("perfil") ? "text-emerald-700" : null,
           )}
-          href="/dashboard/perfil"
+          to="/dashboard/perfil"
         >
           Perfil
-        </a>
-        <a
-          className={classNames(
-            " hover:text-emerald-700",
-              null
-          )}
-          href="/"
-        >
+        </Link>
+        <Link className="hover:text-emerald-700" to="/">
           Sair
-        </a>
+        </Link>
       </nav>
     </header>
   );
