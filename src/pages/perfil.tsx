@@ -3,34 +3,53 @@ import { Header } from "../components/Header";
 import { useUser } from "../contexts/UserContext";
 import ProfileRow from "../components/ProfileRow";
 import { getInitials } from "../utils";
+import type { User } from "../types/userType";
+
+type FieldKey = keyof User;
+
+const fields: { label: string; key: FieldKey }[] = [
+  { label: "Nome Completo", key: "name" },
+  { label: "Nome de Preferência", key: "username" },
+  { label: "Endereço de E-mail", key: "email" },
+  { label: "Matrícula / CPF", key: "document" },
+  { label: "Número de Telefone", key: "phoneNumber" },
+  { label: "Usuário GitHub", key: "githubUsername" },
+];
 
 export default function Profile() {
-  const { user } = useUser();
+  const { user, updateUser } = useUser();
   const [activeTab, setActiveTab] = useState("Dados Pessoais");
+  const [isEditing, setIsEditing] = useState(false);
+  const [draft, setDraft] = useState<User>({ ...user });
 
   const tabs = ["Dados Pessoais", "Configurações", "Segurança"];
 
-  const personalData = [
-    { label: "Nome Completo", value: user?.name || "João Silva" },
-    { label: "Nome de Preferência", value: user?.username || "Jonh" },
-    { label: "Endereço de E-mail", value: user?.email || "joao.silva@satc.edu.br" },
-    { label: "Matrícula / CPF", value: user?.document || "***.***.***-89" },
-    { label: "Número de Telefone", value: user?.phoneNumber || "Não fornecido" },
-  ];
+  const handleEdit = () => {
+    setDraft({ ...user });
+    setIsEditing(true);
+  };
+
+  const handleSave = () => {
+    updateUser(draft);
+    setIsEditing(false);
+  };
+
+  const handleCancel = () => {
+    setIsEditing(false);
+  };
 
   return (
     <>
       <Header />
       <main className="w-full min-h-screen bg-gray-50 px-[5vw] md:px-[10vw] py-10 flex flex-col gap-8 text-left">
-        
         <section className="flex items-center gap-5">
           <div className="flex items-center justify-center w-20 h-20 rounded-full bg-emerald-600 text-white text-2xl font-semibold shrink-0 shadow-sm">
-            {getInitials(user?.name || "João Silva")}
+            {getInitials(user.name)}
           </div>
 
           <div className="flex flex-col gap-1">
             <h1 className="text-3xl font-bold text-slate-800 tracking-tight">
-              {user?.name || "João Silva"}
+              {user.name}
             </h1>
             <p className="text-slate-500 text-sm font-medium">
               Engenharia de Software • 3º Ano
@@ -57,9 +76,41 @@ export default function Profile() {
         <section className="bg-white border border-gray-200 rounded-md shadow-sm flex flex-col w-full">
           {activeTab === "Dados Pessoais" && (
             <div className="flex flex-col">
-              {personalData.map((data, i) => (
-                <ProfileRow key={i} label={data.label} value={data.value} />
+              {fields.map(({ label, key }) => (
+                <ProfileRow
+                  key={key}
+                  label={label}
+                  value={isEditing ? draft[key] : user[key]}
+                  isEditing={isEditing}
+                  onChange={(val) => setDraft((prev) => ({ ...prev, [key]: val }))}
+                />
               ))}
+
+              <div className="flex justify-end gap-3 px-6 py-4">
+                {isEditing ? (
+                  <>
+                    <button
+                      onClick={handleCancel}
+                      className="text-sm px-4 py-2 rounded-md border border-gray-200 text-slate-600 hover:bg-gray-50 transition-colors"
+                    >
+                      Cancelar
+                    </button>
+                    <button
+                      onClick={handleSave}
+                      className="text-sm px-4 py-2 rounded-md bg-emerald-600 text-white hover:bg-emerald-700 transition-colors"
+                    >
+                      Salvar
+                    </button>
+                  </>
+                ) : (
+                  <button
+                    onClick={handleEdit}
+                    className="text-sm px-4 py-2 rounded-md border border-gray-200 text-slate-600 hover:bg-gray-50 transition-colors"
+                  >
+                    Editar
+                  </button>
+                )}
+              </div>
             </div>
           )}
 
@@ -69,7 +120,6 @@ export default function Profile() {
             </div>
           )}
         </section>
-        
       </main>
     </>
   );
